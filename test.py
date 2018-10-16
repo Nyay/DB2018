@@ -75,18 +75,51 @@ def get_spare(cursor):
 
 
 def get_workers(cursor):
-    cmd3 = 'SELECT * FROM "workers"'
-    cursor.execute(cmd3)
+    cmd = 'SELECT * FROM "workers"'
+    cursor.execute(cmd)
     workers = cursor.fetchall()
     result = defaultdict()
     for item in workers:
         result[item[0]] = item[1]
     return result
 
-#print(get_spare())
 
-#conn.close()
+def get_workers(cursor):
+    cmd = 'SELECT * FROM "workers"'
+    cursor.execute(cmd)
+    workers = cursor.fetchall()
+    result = defaultdict()
+    for item in workers:
+        result[item[0]] = item[1]
+    return result
 
-#add_data_file(conn, '/Users/macbook/Desktop/DB2018/equipment.txt', 'equipment')
 
-#add_data(conn, [1, 1], 'belong')
+def get_equipment(cursor):
+    cmd = 'SELECT * FROM "equipment"'
+    cursor.execute(cmd)
+    equipment = cursor.fetchall()
+    result = defaultdict()
+    for item in equipment:
+        result[item[0]] = item[1].strip('\n')
+    return result
+
+
+def get_inuse(cursor):
+    cmd = 'SELECT * FROM "belonging"'
+    cursor.execute(cmd)
+    blist = cursor.fetchall()
+    result = defaultdict()
+    for item in blist:
+        cmd1 = 'SELECT * FROM "workers" WHERE "worker_id" == "{}"'
+        cmd2 = 'SELECT * FROM "equipment" WHERE  "equipment_id" == "{}"'
+        cursor.execute(cmd1.format(item[1]))
+        worker = cursor.fetchone()
+        cursor.execute(cmd2.format(item[0]))
+        stuff = cursor.fetchone()
+        line1 = '{} (id: {})'.format(worker[1], worker[0])
+        line2 = '{} (id: {})'.format(stuff[1].strip('\n'), stuff[0])
+        if line1 in result:
+            result[line1] += '\n{}'.format(line2)
+        else:
+            result[line1] = line2
+    return result

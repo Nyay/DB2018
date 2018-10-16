@@ -1,10 +1,5 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link href="/static/page_sample.css" type="text/css" rel="stylesheet">
-    <title>Добавление вопросов в DB</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% block content %}
 <form action="/new_belong">
 <li>
     <label>Выберете нужное оборудование: </label>
@@ -28,7 +23,6 @@
     <li>
         <label>Введите ФИО нового сотрудника: </label>
         <input type="text" name="new_worker" />
-        <span>Оставьте поле путым, если создавать новый блок не нужно.</span>
     </li>
     <input type="submit" value="Добавить">
 </form>
@@ -40,5 +34,65 @@
     </li>
     <input type="submit" value="Добавить">
 </form>
-</body>
-</html>
+
+
+<button class="btn btn-info" data-toggle="collapse" data-target="#hide-me">Показать таблицу работников</button>
+<div id="hide-me" class="collapse in">
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">Работник</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for element in workers %}
+    <tr>
+      <td>{{ element }}</td>
+      <td>{{ workers[element] }}</td>
+    </tr>
+   {% endfor %}
+  </tbody>
+</table>
+</div>
+
+<button class="btn btn-info" data-toggle="collapse" data-target="#hide-me2">Показать таблицу с оборудованием</button>
+<div id="hide-me2" class="collapse in">
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">Оборудование</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for element in equipment %}
+    <tr>
+      <td>{{ element }}</td>
+      <td>{{ equipment[element] }}</td>
+    </tr>
+   {% endfor %}
+  </tbody>
+</table>
+    </div>
+
+<button class="btn btn-info" data-toggle="collapse" data-target="#hide-me3">Показать занятое оборудование</button>
+<div id="hide-me3" class="collapse in">
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Сотрудник</th>
+      <th scope="col">Оборудование</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for element in inuse %}
+    <tr>
+      <td>{{ element }}</td>
+      <td>{{ inuse[element] }}</td>
+    </tr>
+   {% endfor %}
+  </tbody>
+</table>
+    </div>
+{% endblock %}
