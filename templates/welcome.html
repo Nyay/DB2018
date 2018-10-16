@@ -36,9 +36,18 @@
 </form>
 
 
-<button class="btn btn-info" data-toggle="collapse" data-target="#hide-me">Показать таблицу работников</button>
-<div id="hide-me" class="collapse in">
-<table class="table">
+<div class="container text-center">
+  <h3>Просмотр данных в базе данных</h3><br>
+  <div class="row">
+    <div class="col-sm-4">
+        <button href="#myModal" id="openBtn" data-toggle="modal" class="btn btn-default">Показать таблицу работников</button>
+
+<div class="modal fade" id="myModal">
+<div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body">
+		  <h5 class="text-center">Работники компании и их ID</h5>
+          <table class="table">
   <thead class="thead-dark">
     <tr>
       <th scope="col">id</th>
@@ -54,10 +63,19 @@
    {% endfor %}
   </tbody>
 </table>
-</div>
+    </div>
+  </div>
+    </div>
+        </div>
+        </div>
+    <div class="col-sm-4">
+        <button href="#myModal1" id="openBtn1" data-toggle="modal" class="btn btn-default">Показать таблицу с оборудованием</button>
 
-<button class="btn btn-info" data-toggle="collapse" data-target="#hide-me2">Показать таблицу с оборудованием</button>
-<div id="hide-me2" class="collapse in">
+<div class="modal fade" id="myModal1">
+<div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body">
+		  <h5 class="text-center">Оборудование компании и его ID</h5>
 <table class="table">
   <thead class="thead-dark">
     <tr>
@@ -75,9 +93,18 @@
   </tbody>
 </table>
     </div>
+  </div>
+    </div>
+        </div>
+        </div>
+    <div class="col-sm-4">
+        <button href="#myModal2" id="openBtn2" data-toggle="modal" class="btn btn-default">Показать таблицу с распределением оборудования</button>
 
-<button class="btn btn-info" data-toggle="collapse" data-target="#hide-me3">Показать занятое оборудование</button>
-<div id="hide-me3" class="collapse in">
+<div class="modal fade" id="myModal2">
+<div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body">
+		  <h5 class="text-center">Работники компании и оборудование у них на руках</h5>
 <table class="table">
   <thead class="thead-dark">
     <tr>
@@ -95,4 +122,12 @@
   </tbody>
 </table>
     </div>
+  </div>
+    </div>
+        </div>
+        </div>
+      </div>
+    </div>
+<br>
+
 {% endblock %}
