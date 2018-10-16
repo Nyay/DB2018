@@ -1,36 +1,44 @@
 import sqlite3 as sql
-from collections import defaultdict
-
-conn = sql.connect('sis.db')
-
-cdf = conn.cursor()
-cdf.fetchall()
+from collections import defaultdict, Iterable
 
 
-def add_data(conn, param, target):
+def removekey(d, key):
+    r = dict(d)
+    del r[key]
+    return r
+
+
+def chain(*iterables):
+    for iterable in iterables:
+        if not isinstance(iterable, Iterable):
+            yield iterable
+        else:
+            for item in iterable:
+                if item != iterable:
+                    yield from chain(item)
+                else:
+                    yield item
+
+
+def add_data(cursor, param, target):
     cmd1 = 'INSERT INTO "workers" ("full_name") VALUES ("{}")'
     cmd2 = 'INSERT INTO "equipment" ("nomination") VALUES ("{}")'
     cmd3 = 'INSERT INTO "belonging" ("equipment_id", "worker_id") VALUES ("{}", "{}")'
     if target == 'equipment':
         if type(param) is str:
-            conn.execute(cmd2.format(param))
-            conn.commit()
+            cursor.execute(cmd2.format(param))
         elif type(param) is list:
             for item in param:
-                conn.execute(cmd2.format(item))
-                conn.commit()
+                cursor.execute(cmd2.format(item))
     elif target == 'worker':
         if type(param) is str:
-            conn.execute(cmd1.format(param))
-            conn.commit()
+            cursor.execute(cmd1.format(param))
         elif type(param) is list:
             for item in param:
-                conn.execute(cmd1.format(item))
-                conn.commit()
+                cursor.execute(cmd1.format(item))
     elif target == 'belong':
         if type(param) is list:
-            conn.execute(cmd3.format(param[0], param[1]))
-            conn.commit()
+            cursor.execute(cmd3.format(param[0], param[1]))
     else:
         print('Wrong target to add')
 
@@ -50,42 +58,34 @@ def add_data_file(conn, path, target):
         print('Wrong target to add')
 
 
-def get_id(conn, param, target):
-    cmd1 = 'SELECT "worker_id" FROM "workers" WHERE "full_name" == "{}"'
-    cmd2 = 'SELECT * FROM "equipment" WHERE "nomination" IS "{}"'
-    if target == 'equipment':
-        if type(param) is str:
-            crsr = conn.cursor()
-            crsr.execute(cmd2.format(param))
-            return crsr.fetchone()
-        elif type(param) is list:
-            result = defaultdict()
-            for item in param:
-                crsr = conn.cursor()
-                crsr.execute(cmd2.format(param))
-                result[item] = crsr.fetchone()
-            return result
-    elif target == 'worker':
-        if type(param) is str:
-            crsr = conn.cursor()
-            crsr.execute(cmd1.format(param))
-            return crsr.fetchone()
-        elif type(param) is list:
-            result = defaultdict()
-            for item in param:
-                crsr = conn.cursor()
-                crsr.execute(cmd1.format(item))
-                result[item] = crsr.fetchone()[0]
-            return result
-    else:
-        print('Wrong target to add')
+def get_spare(cursor):
+    cmd3 = 'SELECT "equipment_id" FROM "equipment"'
+    cmd4 = 'SELECT "equipment_id" FROM "belonging"'
+    cmd5 = 'SELECT "nomination" FROM "equipment" WHERE "equipment_id" == "{}"'
+    cursor.execute(cmd3)
+    eq_ids = list(chain(cursor.fetchall()))
+    cursor.execute(cmd4)
+    inuse = list(chain(cursor.fetchall()))
+    cursor.execute(cmd4)
+    result = defaultdict()
+    for item in list(set(eq_ids) - set(inuse)):
+        cursor.execute(cmd5.format(item))
+        result[item] = cursor.fetchone()[0].strip('\n')
+    return result
 
 
-print(get_id(conn,
-       ['Татаринов Юрий Владимирович',
-        'Минина Ольга Игоревна',
-        'Татаринов Артем Юрьевич'],
-       'worker'))
+def get_workers(cursor):
+    cmd3 = 'SELECT * FROM "workers"'
+    cursor.execute(cmd3)
+    workers = cursor.fetchall()
+    result = defaultdict()
+    for item in workers:
+        result[item[0]] = item[1]
+    return result
+
+#print(get_spare())
+
+#conn.close()
 
 #add_data_file(conn, '/Users/macbook/Desktop/DB2018/equipment.txt', 'equipment')
 

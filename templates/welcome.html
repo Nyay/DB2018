@@ -1,53 +1,44 @@
-{% extends "main.html" %}
-{% block content %}
-
-<form action="/form_word">
-		<div id="word" class="container-fluid">
-  <div class="row">
-    <div class="col-sm-8">
-  	<h1>Поиск по точной словоформе</h1>
-    <div class="input-group">
-      <input type="text" class="form-control" placeholder="Введите словоформу" name="word">
-      <div class="input-group-btn">
-        <button type="submit" class="btn btn-danger">Найти</button>
-      </div>
-    </div>
-    </div>
-    <div class="col-sm-4">
-    </div>
-  </div>
-</div>
-	</form>
-<form action="/form">
-		<div id="lex" class="container-fluid  bg-grey">
-  <div class="row">
-	  <div class="col-sm-3">
-    </div>
-    <div class="col-sm-9">
-		<h1>Лексико-грамматический поиск</h1>
-		  <div class="row">
-			<div class="col-sm-3">
-			  <div class="form-group">
-			  <input type="text" class="form-control" placeholder="Введите лексему 1" name="lex1">
-				  <br>
-                 <input type="text" class="form-control" placeholder="Введите лексему 2" name="lex2">
-			</div>
-                 <input type="number" class="form-control" name="num" min="0" value="1">
-				<br>
-				<button type="submit" class="btn btn-danger btn-xs btn-block">Найти</button>
-			</div>
-			<div class="col-sm-5">
-			  <div class="form-group">
-			  <input type="text" class="form-control" placeholder="Введите грамматические признаки 1" name="gr1">
-				  <br>
-                  <input type="text" class="form-control" placeholder="Введите грамматические признаки 2" name="gr2">
-				  </div>
-				<p>Задайте расстояние между словами</p>
-			</div>
-		  </div>
-    </div>
-    </div>
-  </div>
-</div>
-	</form>
-{% endblock %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="/static/page_sample.css" type="text/css" rel="stylesheet">
+    <title>Добавление вопросов в DB</title>
+</head>
+<body>
+<form action="/new_belong">
+<li>
+    <label>Выберете нужное оборудование: </label>
+    <select name='equipment'>
+        {% for element in spare %}
+        <option value="{{ element }}">{{ spare[element] }}</option>
+        {% endfor %}
+    </select>
+</li>
+    <li>
+        <label>Выберите нужного сотрудника: </label>
+        <select name='worker'>
+            {% for element in workers %}
+            <option value="{{ element }}">{{ workers[element] }}</option>
+            {% endfor %}
+        </select>
+    </li>
+    <input type="submit" value="Записать">
+</form>
+<form action="/new_worker">
+    <li>
+        <label>Введите ФИО нового сотрудника: </label>
+        <input type="text" name="new_worker" />
+        <span>Оставьте поле путым, если создавать новый блок не нужно.</span>
+    </li>
+    <input type="submit" value="Добавить">
+</form>
+</form>
+<form action="/new_spare">
+    <li>
+        <label>Введите наименование нового оборудования: </label>
+        <input type="text" name="new_spare" />
+    </li>
+    <input type="submit" value="Добавить">
+</form>
+</body>
+</html>
