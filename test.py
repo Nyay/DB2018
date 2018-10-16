@@ -119,7 +119,7 @@ def get_inuse(cursor):
         line1 = '{} (id: {})'.format(worker[1], worker[0])
         line2 = '{} (id: {})'.format(stuff[1].strip('\n'), stuff[0])
         if line1 in result:
-            result[line1] += '\n{}'.format(line2)
+            result[line1] += ' | {}'.format(line2)
         else:
             result[line1] = line2
     return result

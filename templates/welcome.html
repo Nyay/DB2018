@@ -1,40 +1,5 @@
 {% extends "base.html" %}
 {% block content %}
-<form action="/new_belong">
-<li>
-    <label>Выберете нужное оборудование: </label>
-    <select name='equipment'>
-        {% for element in spare %}
-        <option value="{{ element }}">{{ spare[element] }}</option>
-        {% endfor %}
-    </select>
-</li>
-    <li>
-        <label>Выберите нужного сотрудника: </label>
-        <select name='worker'>
-            {% for element in workers %}
-            <option value="{{ element }}">{{ workers[element] }}</option>
-            {% endfor %}
-        </select>
-    </li>
-    <input type="submit" value="Записать">
-</form>
-<form action="/new_worker">
-    <li>
-        <label>Введите ФИО нового сотрудника: </label>
-        <input type="text" name="new_worker" />
-    </li>
-    <input type="submit" value="Добавить">
-</form>
-</form>
-<form action="/new_spare">
-    <li>
-        <label>Введите наименование нового оборудования: </label>
-        <input type="text" name="new_spare" />
-    </li>
-    <input type="submit" value="Добавить">
-</form>
-
 
 <div class="container text-center">
   <h3>Просмотр данных в базе данных</h3><br>
@@ -129,5 +94,55 @@
       </div>
     </div>
 <br>
+<br>
+<br>
+<div class="container">
+<div class="row">
+  <div class="col-sm-8">
+      <h3>Добавить новые данные в базу</h3><br>
+       <form action="/new_worker">
+
+
+           <div class="input-group mb-3">
+               <label>Введите ФИО нового сотрудника: </label>
+  <input type="text" class="form-control" placeholder="ФИО нового сотрудника" aria-label="ФИО нового сотрудника" aria-describedby="basic-addon2" name="new_worker">
+</div>
+           <input type="submit" value="Добавить">
+
+           </form>
+      <form action="/new_spare">
+                      <div class="input-group mb-3">
+               <label>Введите наименование нового оборудования: </label>
+  <input type="text" class="form-control" placeholder="Наименование нового оборудовани" aria-label="Наименование нового оборудования" aria-describedby="basic-addon2" name=name="new_spare">
+</div>
+           <input type="submit" value="Добавить">
+</form>
+</div>
+
+  <div class="col-sm-4">
+      <h3>Выдать оборудование</h3><br>
+      <form action="/new_belong">
+        <div class="form-group">
+  <label>Выберете свободное оборудование:</label>
+  <select class="form-control" name="equipment">
+
+        {% for element in spare %}
+        <option value="{{ element }}">{{ spare[element] }}</option>
+        {% endfor %}
+  </select>
+            <label>Выберите нужного сотрудника: </label>
+        <select class="form-control" name='worker'>
+            {% for element in workers %}
+            <option value="{{ element }}">{{ workers[element] }}</option>
+            {% endfor %}
+        </select>
+            <input type="submit" value="Записать">
+</div>
+</form>
+    </div>
+  </div>
+</div>
+
+
 
 {% endblock %}

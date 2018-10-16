@@ -51,13 +51,14 @@ def new_worker():
 def new_spare():
     with sql.connect('sis.db') as con:
         cur = con.cursor()
-        equipment = get_equipment(cur)
-        spare = get_spare(cur)
-        workers = get_workers(cur)
+
         add_data(cur,
                  request.args['new_spare'],
                  'equipment')
         inuse = get_inuse(cur)
+        equipment = get_equipment(cur)
+        spare = get_spare(cur)
+        workers = get_workers(cur)
 
     return render_template('welcome.html', workers=workers, spare=spare, equipment=equipment, inuse=inuse)
 
