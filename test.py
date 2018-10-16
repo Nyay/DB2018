@@ -10,6 +10,7 @@ cdf.fetchall()
 def add_data(conn, param, target):
     cmd1 = 'INSERT INTO "workers" ("full_name") VALUES ("{}")'
     cmd2 = 'INSERT INTO "equipment" ("nomination") VALUES ("{}")'
+    cmd3 = 'INSERT INTO "belonging" ("equipment_id", "worker_id") VALUES ("{}", "{}")'
     if target == 'equipment':
         if type(param) is str:
             conn.execute(cmd2.format(param))
@@ -26,6 +27,10 @@ def add_data(conn, param, target):
             for item in param:
                 conn.execute(cmd1.format(item))
                 conn.commit()
+    elif target == 'belong':
+        if type(param) is list:
+            conn.execute(cmd3.format(param[0], param[1]))
+            conn.commit()
     else:
         print('Wrong target to add')
 
@@ -84,3 +89,4 @@ print(get_id(conn,
 
 #add_data_file(conn, '/Users/macbook/Desktop/DB2018/equipment.txt', 'equipment')
 
+#add_data(conn, [1, 1], 'belong')

@@ -13,8 +13,8 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/DB2018$main.coverage" NAME="main Coverage Results" MODIFIED="1539708830646" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/DB2018$test.coverage" NAME="test Coverage Results" MODIFIED="1539710775180" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/DB2018$main.coverage" NAME="main Coverage Results" MODIFIED="1539714451967" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/DB2018$test.coverage" NAME="test Coverage Results" MODIFIED="1539716200160" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/DB2018$run.coverage" NAME="run Coverage Results" MODIFIED="1538481261309" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app" />
   </component>
   <component name="CreatePatchCommitExecutor">
@@ -52,15 +52,16 @@
       <file leaf-file-name="test.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1344">
-              <caret line="84" column="1" selection-start-line="84" selection-start-column="1" selection-end-line="84" selection-end-column="1" />
+            <state relative-caret-position="350">
+              <caret line="91" column="1" selection-start-line="91" selection-start-column="1" selection-end-line="91" selection-end-column="1" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
-                <marker date="1539710982000" expanded="true" signature="173:222" ph="INSERT INTO &quot;workers&quot;... " />
-                <marker date="1539710982000" expanded="true" signature="236:288" ph="INSERT INTO &quot;equipment&quot;... " />
-                <marker date="1539710982000" expanded="true" signature="1401:1434" ph="SELECT * FRO... workers" />
-                <marker date="1539710982000" expanded="true" signature="1401:1460" ph="SELECT &quot;work... workers" />
-                <marker date="1539710982000" expanded="true" signature="1474:1526" ph="SELECT * FRO... equipment" />
+                <marker date="1539716245000" expanded="true" signature="173:222" ph="INSERT INTO &quot;workers&quot;... " />
+                <marker date="1539716245000" expanded="true" signature="236:288" ph="INSERT INTO &quot;equipment&quot;... " />
+                <marker date="1539716245000" expanded="true" signature="302:375" ph="INSERT INTO &quot;belonging&quot;... " />
+                <marker date="1539716245000" expanded="true" signature="1633:1666" ph="SELECT * FRO... workers" />
+                <marker date="1539716245000" expanded="true" signature="1633:1692" ph="SELECT &quot;work... workers" />
+                <marker date="1539716245000" expanded="true" signature="1706:1758" ph="SELECT * FRO... equipment" />
               </folding>
             </state>
           </provider>
@@ -79,8 +80,8 @@
       <file leaf-file-name="main.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/main.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1030">
-              <caret line="238" column="7" selection-start-line="238" selection-start-column="7" selection-end-line="238" selection-end-column="7" />
+            <state relative-caret-position="310">
+              <caret line="220" column="0" selection-start-line="220" selection-start-column="0" selection-end-line="220" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -89,8 +90,8 @@
       <file leaf-file-name="welcome.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/welcome.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="16" selection-start-line="0" selection-start-column="16" selection-end-line="0" selection-end-column="16" />
+            <state relative-caret-position="32">
+              <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -110,12 +111,12 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/app/setup.py" />
-        <option value="$PROJECT_DIR$/templates/main.html" />
         <option value="$PROJECT_DIR$/templates/welcom.html" />
-        <option value="$PROJECT_DIR$/templates/welcome.html" />
         <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/DataBaseSetUp.py" />
         <option value="$PROJECT_DIR$/equipment.txt" />
+        <option value="$PROJECT_DIR$/templates/main.html" />
+        <option value="$PROJECT_DIR$/templates/welcome.html" />
         <option value="$PROJECT_DIR$/test.py" />
       </list>
     </option>
@@ -574,11 +575,12 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
-            <marker date="1539710982000" expanded="true" signature="173:222" ph="INSERT INTO &quot;workers&quot;... " />
-            <marker date="1539710982000" expanded="true" signature="236:288" ph="INSERT INTO &quot;equipment&quot;... " />
-            <marker date="1539710982000" expanded="true" signature="1401:1434" ph="SELECT * FRO... workers" />
-            <marker date="1539710982000" expanded="true" signature="1401:1460" ph="SELECT &quot;work... workers" />
-            <marker date="1539710982000" expanded="true" signature="1474:1526" ph="SELECT * FRO... equipment" />
+            <marker date="1539716245000" expanded="true" signature="173:222" ph="INSERT INTO &quot;workers&quot;... " />
+            <marker date="1539716245000" expanded="true" signature="236:288" ph="INSERT INTO &quot;equipment&quot;... " />
+            <marker date="1539716245000" expanded="true" signature="302:375" ph="INSERT INTO &quot;belonging&quot;... " />
+            <marker date="1539716245000" expanded="true" signature="1633:1666" ph="SELECT * FRO... workers" />
+            <marker date="1539716245000" expanded="true" signature="1633:1692" ph="SELECT &quot;work... workers" />
+            <marker date="1539716245000" expanded="true" signature="1706:1758" ph="SELECT * FRO... equipment" />
           </folding>
         </state>
       </provider>
@@ -624,11 +626,12 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
-            <marker date="1539710982000" expanded="true" signature="173:222" ph="INSERT INTO &quot;workers&quot;... " />
-            <marker date="1539710982000" expanded="true" signature="236:288" ph="INSERT INTO &quot;equipment&quot;... " />
-            <marker date="1539710982000" expanded="true" signature="1401:1434" ph="SELECT * FRO... workers" />
-            <marker date="1539710982000" expanded="true" signature="1401:1460" ph="SELECT &quot;work... workers" />
-            <marker date="1539710982000" expanded="true" signature="1474:1526" ph="SELECT * FRO... equipment" />
+            <marker date="1539716245000" expanded="true" signature="173:222" ph="INSERT INTO &quot;workers&quot;... " />
+            <marker date="1539716245000" expanded="true" signature="236:288" ph="INSERT INTO &quot;equipment&quot;... " />
+            <marker date="1539716245000" expanded="true" signature="302:375" ph="INSERT INTO &quot;belonging&quot;... " />
+            <marker date="1539716245000" expanded="true" signature="1633:1666" ph="SELECT * FRO... workers" />
+            <marker date="1539716245000" expanded="true" signature="1633:1692" ph="SELECT &quot;work... workers" />
+            <marker date="1539716245000" expanded="true" signature="1706:1758" ph="SELECT * FRO... equipment" />
           </folding>
         </state>
       </provider>
@@ -693,11 +696,12 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
-            <marker date="1539710982000" expanded="true" signature="173:222" ph="INSERT INTO &quot;workers&quot;... " />
-            <marker date="1539710982000" expanded="true" signature="236:288" ph="INSERT INTO &quot;equipment&quot;... " />
-            <marker date="1539710982000" expanded="true" signature="1401:1434" ph="SELECT * FRO... workers" />
-            <marker date="1539710982000" expanded="true" signature="1401:1460" ph="SELECT &quot;work... workers" />
-            <marker date="1539710982000" expanded="true" signature="1474:1526" ph="SELECT * FRO... equipment" />
+            <marker date="1539716245000" expanded="true" signature="173:222" ph="INSERT INTO &quot;workers&quot;... " />
+            <marker date="1539716245000" expanded="true" signature="236:288" ph="INSERT INTO &quot;equipment&quot;... " />
+            <marker date="1539716245000" expanded="true" signature="302:375" ph="INSERT INTO &quot;belonging&quot;... " />
+            <marker date="1539716245000" expanded="true" signature="1633:1666" ph="SELECT * FRO... workers" />
+            <marker date="1539716245000" expanded="true" signature="1633:1692" ph="SELECT &quot;work... workers" />
+            <marker date="1539716245000" expanded="true" signature="1706:1758" ph="SELECT * FRO... equipment" />
           </folding>
         </state>
       </provider>
@@ -742,30 +746,19 @@
     <entry file="file://$PROJECT_DIR$/app/run.py" />
     <entry file="file://$PROJECT_DIR$/app/search.py" />
     <entry file="file://$PROJECT_DIR$/app/setup.py" />
-    <entry file="file://$PROJECT_DIR$/templates/welcome.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="16" selection-start-line="0" selection-start-column="16" selection-end-line="0" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/main.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1030">
-          <caret line="238" column="7" selection-start-line="238" selection-start-column="7" selection-end-line="238" selection-end-column="7" />
+        <state relative-caret-position="310">
+          <caret line="220" column="0" selection-start-line="220" selection-start-column="0" selection-end-line="220" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DataBaseSetUp.py">
+    <entry file="file://$PROJECT_DIR$/templates/welcome.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="9" column="18" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
-          <folding>
-            <marker date="1538489538000" expanded="true" signature="111:185" ph="INSERT INTO &quot;equipment&quot;... " />
-            <marker date="1538489538000" expanded="true" signature="253:321" ph="INSERT INTO &quot;workers&quot;... " />
-          </folding>
+        <state relative-caret-position="32">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -785,17 +778,29 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/DataBaseSetUp.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="9" column="18" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
+          <folding>
+            <marker date="1538489538000" expanded="true" signature="111:185" ph="INSERT INTO &quot;equipment&quot;... " />
+            <marker date="1538489538000" expanded="true" signature="253:321" ph="INSERT INTO &quot;workers&quot;... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1344">
-          <caret line="84" column="1" selection-start-line="84" selection-start-column="1" selection-end-line="84" selection-end-column="1" />
+        <state relative-caret-position="350">
+          <caret line="91" column="1" selection-start-line="91" selection-start-column="1" selection-end-line="91" selection-end-column="1" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
-            <marker date="1539710982000" expanded="true" signature="173:222" ph="INSERT INTO &quot;workers&quot;... " />
-            <marker date="1539710982000" expanded="true" signature="236:288" ph="INSERT INTO &quot;equipment&quot;... " />
-            <marker date="1539710982000" expanded="true" signature="1401:1434" ph="SELECT * FRO... workers" />
-            <marker date="1539710982000" expanded="true" signature="1401:1460" ph="SELECT &quot;work... workers" />
-            <marker date="1539710982000" expanded="true" signature="1474:1526" ph="SELECT * FRO... equipment" />
+            <marker date="1539716245000" expanded="true" signature="173:222" ph="INSERT INTO &quot;workers&quot;... " />
+            <marker date="1539716245000" expanded="true" signature="236:288" ph="INSERT INTO &quot;equipment&quot;... " />
+            <marker date="1539716245000" expanded="true" signature="302:375" ph="INSERT INTO &quot;belonging&quot;... " />
+            <marker date="1539716245000" expanded="true" signature="1633:1666" ph="SELECT * FRO... workers" />
+            <marker date="1539716245000" expanded="true" signature="1633:1692" ph="SELECT &quot;work... workers" />
+            <marker date="1539716245000" expanded="true" signature="1706:1758" ph="SELECT * FRO... equipment" />
           </folding>
         </state>
       </provider>
