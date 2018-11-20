@@ -1,0 +1,280 @@
+{% extends "base.html" %}
+{% block content %}
+<div id="AddData" class="container-fluid text-center">
+  <div class="row content">
+    <div class="col-sm-2 sidenav">
+    </div>
+    <div class="col-sm-8 text-left">
+      <h1>Добавление данных в базу данных</h1>
+      <p>Ниже вы можете добавить необходимую информацию в одну из трех таблиц нашей базы данных.</p>
+      <hr>
+      <h3>Добавить производителя</h3>
+      <form class="form-horizontal" action="/add_company">
+          <div class="form-group">
+              <label class="control-label col-sm-2" for="company">Компания:</label>
+              <div class="col-sm-10">
+                  <input type="text" class="form-control" name="company" id="company" placeholder="Введите название компании">
+              </div>
+          </div>
+          <div class="form-group">
+              <label class="control-label col-sm-2" for="email">Email:</label>
+              <div class="col-sm-10">
+                  <input type="email" class="form-control" name="email" id="email" placeholder="Введите почту при наличии">
+              </div>
+          </div>
+          <div class="form-group">
+              <label class="control-label col-sm-2" for="country">Страна:</label>
+              <div class="col-sm-10">
+                  <input type="text" class="form-control" name="country" id="country" placeholder="Введите страну производителя">
+              </div>
+          </div>
+          <div class="form-group">
+              <label class="control-label col-sm-2" for="address">Адрес:</label>
+              <div class="col-sm-10">
+                  <input type="text" class="form-control" name="address" id="address" placeholder="Введите адресс с почтовым индексом">
+              </div>
+          </div>
+          <div class="form-group">
+              <div class="col-sm-offset-2 col-sm-10">
+                  <button type="submit" class="btn btn-default">Добавить</button>
+              </div>
+          </div>
+      </form>
+        <hr>
+      <h3>Добавить изделие</h3>
+      <form class="form-horizontal" action="/add_product">
+          <div class="form-group">
+              <label class="control-label col-sm-2" for="Denomination">Наименование:</label>
+              <div class="col-sm-10">
+                  <input type="text" class="form-control" name="Denomination" id="Denomination" placeholder="Введите наименование изделия">
+              </div>
+          </div>
+          <div class="form-group">
+              <label class="control-label col-sm-2" for="Code">Артикул:</label>
+              <div class="col-sm-10">
+                  <input type="text" class="form-control" name="Code" id="Code" placeholder="Введите артикул">
+              </div>
+          </div>
+          <div class="form-group">
+              <label class="control-label col-sm-2" for="Manufacturer">Производитель:</label>
+              <div class="col-sm-10">
+                      <select class="form-control" name="Manufacturer"  id="sel1">
+                          {% for name in company_list %}
+                        <option value="{{ company_list[name] }}">{{ name }}</option>
+                          {% endfor %}
+                      </select>
+              </div>
+          </div>
+          <div class="form-group">
+              <label class="control-label col-sm-2" for="Price">Стоимость:</label>
+              <div class="col-sm-10">
+                  <input type="number" class="form-control" name="Price" id="Price" placeholder="Введите стоимость">
+              </div>
+          </div>
+          <div class="form-group">
+              <div class="col-sm-offset-2 col-sm-10">
+                  <button type="submit" class="btn btn-default">Добавить</button>
+              </div>
+          </div>
+      </form>
+        <hr>
+      <h3>Добавить претензию</h3>
+      <form class="form-horizontal" action="/add_claim">
+          <div class="form-group">
+              <label class="control-label col-sm-2" for="Declarant">Заявитель:</label>
+              <div class="col-sm-10">
+                  <input type="text" class="form-control" name="Declarant" id="Declarant" placeholder="Введите ФИО">
+              </div>
+          </div>
+          <div class="form-group">
+              <label class="control-label col-sm-2" for="Code">Артикул:</label>
+              <div class="col-sm-10">
+                  <select class="form-control" name="Code"  id="Code">
+                          {% for name in codes_list %}
+                        <option value="{{ name }}">{{ name }}</option>
+                          {% endfor %}
+                      </select>
+              </div>
+          </div>
+          <div class="form-group">
+              <label class="control-label col-sm-2" for="Text">Текст:</label>
+              <div class="col-sm-10">
+                  <textarea class="form-control" name="Text" id="Text" placeholder="Выберите текст претензии"></textarea>
+              </div>
+          </div>
+          <div class="form-group">
+              <div class="col-sm-offset-2 col-sm-10">
+                  <button type="submit" class="btn btn-default">Добавить</button>
+              </div>
+          </div>
+      </form>
+    </div>
+    <div class="col-sm-2 sidenav">
+    </div>
+    </div>
+  </div>
+</div>
+    <div id="ChangeStatus" class="container-fluid text-center">
+  <div class="row content">
+    <div class="col-sm-2 sidenav">
+    </div>
+    <div class="col-sm-8 text-left">
+      <h1>Изменение статуса жалобы</h1>
+      <p>Здесь можно изменить статус жалобы, если ее отклонили или отправили.</p>
+      <hr>
+      <form class="form-horizontal" action="/change_status">
+          <div class="form-group">
+              <label class="control-label col-sm-2" for="Claim">Жалоба:</label>
+              <div class="col-sm-10">
+                  <select class="form-control" name="Claim"  id="Claim">
+                          {% for name in status_list %}
+                        <option value="{{ name[0] }}">id: {{ name[0] }} Заявитель: {{ name[3] }} ({{ name[4] }})</option>
+                          {% endfor %}
+                      </select>
+              </div>
+          </div>
+          <div class="form-group">
+              <label class="control-label col-sm-2" for="Status">Статус:</label>
+              <div class="col-sm-10">
+                  <select class="form-control" name="Status"  id="Status">
+                              <option value="Принята">Принята</option>
+                              <option value="Отклонена">Отклонена</option>
+                              <option value="Отправлена">Отправлена</option>
+                              <option value="Закрыта">Закрыта</option>
+                      </select>
+              </div>
+          </div>
+          <div class="form-group">
+              <div class="col-sm-offset-2 col-sm-10">
+                  <button type="submit" class="btn btn-default">Изменить</button>
+              </div>
+          </div>
+      </form>
+    </div>
+    <div class="col-sm-2 sidenav">
+    </div>
+    </div>
+  </div>
+</div>
+    <div id="DeleteClaims" class="container-fluid text-center">
+  <div class="row content">
+    <div class="col-sm-2 sidenav">
+    </div>
+    <div class="col-sm-8 text-left">
+      <h1>Чистка быза данных</h1>
+      <p>Можете удалить жалобы с определенным статусом.</p>
+      <hr>
+      <form class="form-horizontal" action="/delete_claim">
+          <div class="form-group">
+              <label class="control-label col-sm-2" for="Status">Статус:</label>
+              <div class="col-sm-10">
+                  <select class="form-control" name="Status"  id="Status">
+                              <option value="Принята">Принята</option>
+                              <option value="Отклонена">Отклонена</option>
+                              <option value="Отправлена">Отправлена</option>
+                              <option value="Закрыта">Закрыта</option>
+                      </select>
+              </div>
+          </div>
+          <div class="form-group">
+              <div class="col-sm-offset-2 col-sm-10">
+                  <button type="submit" class="btn btn-default">Удалить</button>
+              </div>
+          </div>
+      </form>
+    </div>
+    <div class="col-sm-2 sidenav">
+    </div>
+    </div>
+  </div>
+</div>
+    <div id="Tables" class="container-fluid text-center">
+  <div class="row content">
+    <div class="col-sm-2 sidenav">
+    </div>
+    <div class="col-sm-8 text-left">
+      <h1>Таблица с данными</h1>
+      <p>Ниже представлена таблица с жалобами.</p>
+      <hr>
+      <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Заявитель</th>
+      <th scope="col">Артикуль</th>
+      <th scope="col">Текст</th>
+        <th scope="col">Статус</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for row in status_list %}
+    <tr>
+      <th scope="row">{{ row[0] }}</th>
+      <td>{{ row[3] }}</td>
+      <td>{{ row[2] }}</td>
+      <td>{{ row[1] }}</td>
+        <td>{{ row[4] }}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+    </div>
+    <div class="col-sm-2 sidenav">
+    </div>
+    </div>
+  </div>
+</div>
+    <div id="ModX" class="container-fluid text-center">
+  <div class="row content">
+    <div class="col-sm-2 sidenav">
+    </div>
+    <div class="col-sm-8 text-left">
+      <h1>Сложный запрос?</h1>
+      <p>Предположим, вам необходимо посмотреть на все жалобы, которые написали на товар, который стоит больше определенной цены.</p>
+      <hr>
+        <form class="form-horizontal" action="/ModX">
+          <div class="form-group">
+              <label class="control-label col-sm-2" for="Price">Стоимость:</label>
+              <div class="col-sm-10">
+                  <input type="number" class="form-control" name="Price" id="Price" placeholder="Введите минимальную стоимость товара">
+              </div>
+          </div>
+          <div class="form-group">
+              <div class="col-sm-offset-2 col-sm-10">
+                  <button type="submit" class="btn btn-default">Найти</button>
+              </div>
+          </div>
+      </form>
+        {% if advanced != () %}
+            <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Текст</th>
+      <th scope="col">Статус</th>
+      <th scope="col">Наименование</th>
+        <th scope="col">Артикуль</th>
+        <th scope="col">Цена</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for row in advanced %}
+    <tr>
+      <th scope="row">{{ row[0] }}</th>
+      <td>{{ row[1] }}</td>
+      <td>{{ row[2] }}</td>
+      <td>{{ row[3] }}</td>
+        <td>{{ row[4] }}</td>
+    <td>{{ row[5] }}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+        {% endif %}
+    </div>
+    <div class="col-sm-2 sidenav">
+    </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
