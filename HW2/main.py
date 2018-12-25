@@ -100,8 +100,7 @@ def delete_claim():
 
 @app.route('/ModX')
 def mod_x():
-    Price = request.args['Price']
-    advanced = mod_ver(Price)
+    advanced = mod_ver(request.args['Price'])
     return render_template('welcome.html', company_list=get_company(), codes_list=get_code(), status_list=get_status(),
                            advanced=advanced)
 
